@@ -28,8 +28,6 @@ jobs:
 
       - name: Patch base Dockerfile and other files
         run: |
-          sed -i 's/^COPY\( .icewm\)/COPY --chown=default\1/' \
-            third_party/ssl-simulation-setup/src/ubuntu-vnc/Dockerfile
           sed -i 's/\(^DesktopBackgroundImage\).*/\1 = "~\/.icewm\/wallpaper.png"/; /^DesktopBackgroundScaled/d' \
             third_party/ssl-simulation-setup/src/ubuntu-vnc/.icewm/preferences
           echo 'DesktopBackgroundColor = white' >> \
